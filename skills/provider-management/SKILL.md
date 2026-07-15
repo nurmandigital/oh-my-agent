@@ -1,13 +1,17 @@
 ---
 name: provider-management
-description: Mengelola provider model AI dalam konfigurasi OpenCode — menambah, memperbarui, dan menghapus provider beserta model-modelnya. Gunakan saat pengguna ingin menambahkan provider baru (base URL + API key), memperbarui konfigurasi yang sudah ada, atau menghapus provider beserta referensinya.
+> ⚠️ **Contoh untuk OpenCode.** Skill ini menunjukkan cara mengelola provider AI di `opencode.json`. Jika Anda menggunakan tool lain (Cursor, Claude Code, Aider, dll), sesuaikan nama file konfigurasi, schema provider, dan perintah restart sesuai tool Anda.
+
+---
+
+description: Mengelola provider model AI dalam konfigurasi agen — menambah, memperbarui, dan menghapus provider beserta model-modelnya. Gunakan saat pengguna ingin menambahkan provider baru (base URL + API key), memperbarui konfigurasi yang sudah ada, atau menghapus provider beserta referensinya.
 ---
 
 # Provider Management
 
 ## Overview
 
-Skill ini menangani seluruh siklus hidup provider AI dalam konfigurasi OpenCode (`opencode.json`). Mulai dari menambah provider baru, memperbarui konfigurasi yang sudah ada, hingga menghapus provider dengan aman tanpa merusak referensi model yang masih dipakai.
+Skill ini menangani seluruh siklus hidup provider AI dalam konfigurasi agen (contoh: `opencode.json`). Mulai dari menambah provider baru, memperbarui konfigurasi yang sudah ada, hingga menghapus provider dengan aman tanpa merusak referensi model yang masih dipakai.
 
 ## When to Use
 
@@ -21,7 +25,7 @@ Skill ini menangani seluruh siklus hidup provider AI dalam konfigurasi OpenCode 
 | File | Fungsi |
 |---|---|
 | `kelola-provider.md` | Menambah provider baru ATAU memperbarui provider yang sudah ada (dengan diff + approval) |
-| `hapus-provider.md` | Menghapus provider + menangani referensi model di `model`, `small_model`, dan `agent` |
+| `hapus-provider.md` | Menghapus provider + menangani referensi model di field konfigurasi |
 
 ## Verification
 

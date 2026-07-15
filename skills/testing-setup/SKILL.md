@@ -115,8 +115,8 @@ describe("formatCurrency", () => {
   const result = formatCurrency(amount);
 
   // Assert: verifikasi output
-  it("should format IDR currency", () => {
-    expect(formatCurrency(1000)).toBe("Rp 1.000");
+  it("should format currency correctly", () => {
+    expect(formatCurrency(1000)).toBe("$1,000");
   });
 
   it("should return dash for negative input", () => {

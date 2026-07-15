@@ -89,7 +89,7 @@ Ikuti alur ini untuk **setiap** tugas. Detail lengkap ada di `workflows/task-ins
 
 ### DevOps & Tooling
 - Environment variables via `.env` (jangan hardcode).
-- CI: test → lint → typecheck → build sebelum merge.
+- CI: test → lint → typecheck → build sebelum integrasi/penggabungan
 - Docker untuk konsistensi environment.
 
 ---
@@ -299,9 +299,9 @@ Referensi: `skills/auth-implementation/`, `templates/SECURITY.md`.
 Sebelum menyatakan tugas selesai, verifikasi SEMUA poin ini:
 
 ### Build & Quality
-- [ ] `npm run build` (atau equivalent) sukses tanpa error
-- [ ] `npm run lint` bersih (zero error, zero warning jika memungkinkan)
-- [ ] Typecheck lulus (`tsc --noEmit` atau `npm run typecheck`)
+- [ ] Perintah build proyek (mis. `npm run build`, `pnpm build`, `cargo build`) sukses tanpa error
+- [ ] Perintah lint proyek (mis. `npm run lint`, `ruff`, `golangci-lint`) bersih (zero error, zero warning jika memungkinkan)
+- [ ] Typecheck lulus (perintah compiler check proyek, mis. `tsc --noEmit`, `mypy`, `clangd`)
 - [ ] Tidak ada `any`, `@ts-ignore`, atau non-null assertion sembarangan
 
 ### Testing

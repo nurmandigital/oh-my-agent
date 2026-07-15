@@ -2,7 +2,7 @@
 
 ## Goal
 
-Membimbing AI Agent untuk membuat dokumen Product Requirements Document (PRD) yang mendetail dalam format Markdown berdasarkan deskripsi awal dari pengguna. PRD harus jelas, dapat ditindaklanjuti, dan mudah dipahami oleh junior developer untuk diimplementasikan.
+Membimbing AI Agent untuk membuat dokumen Product Requirements Document (PRD) yang mendetail dalam format Markdown berdasarkan deskripsi awal dari pengguna. PRD harus jelas, dapat ditindaklanjuti, dan mudah dipahami oleh implementer untuk diimplementasikan.
 
 ## Proses Detail
 
@@ -12,7 +12,7 @@ Membimbing AI Agent untuk membuat dokumen Product Requirements Document (PRD) ya
       - Berikan penomoran pada setiap pertanyaan (1, 2, 3, dst).
       - Sediakan pilihan jawaban berlabel huruf (A, B, C, D, dst) untuk setiap pertanyaan agar pengguna mudah menjawab (misal: "1A, 2C, 3B").
 3.  **Membuat PRD:** Setelah pengguna menjawab pertanyaan klarifikasi, buat draf PRD lengkap menggunakan struktur di bawah.
-4.  **Menyimpan PRD:** Simpan PRD yang dihasilkan ke dalam direktori `/tasks/` dengan nama file `prd-[feature-name].md`.
+4.  **Menyimpan PRD:** Simpan PRD yang dihasilkan ke direktori dokumentasi proyek (mis. `docs/`, `tasks/`, atau `specs/`) dengan nama file `prd-[feature-name].md`.
 
 ## Struktur PRD
 
@@ -30,4 +30,4 @@ Daftar struktur yang wajib ada di dalam PRD:
 
 ## Target Pembaca
 
-Junior developer. Pastikan bahasa yang digunakan eksplisit, tidak ambigu, dan hindari jargon teknis yang tidak perlu agar alur logika fitur mudah dimengerti.
+Junior developer / implementer. Pastikan bahasa yang digunakan eksplisit, tidak ambigu, dan hindari jargon teknis yang tidak perlu agar alur logika fitur mudah dimengerti.

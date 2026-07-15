@@ -2,12 +2,12 @@
 
 ## Goal
 
-Membimbing AI Agent untuk membuat daftar tugas (task list) yang terstruktur, mendetail, dan bertahap dalam format Markdown berdasarkan kebutuhan pengguna, dokumentasi fitur, atau spesifikasi sistem. Daftar tugas ini harus bisa langsung digunakan sebagai panduan eksekusi developer.
+Membimbing AI Agent untuk membuat daftar tugas (task list) yang terstruktur, mendetail, dan bertahap dalam format Markdown berdasarkan kebutuhan pengguna, dokumentasi fitur, atau spesifikasi sistem. Daftar tugas ini harus bisa langsung digunakan sebagai panduan eksekusi implementer.
 
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Lokasi:** `/tasks/`
+- **Lokasi:** Direktori dokumentasi proyek (mis. `docs/`, `tasks/`, atau `specs/`)
 - **Penamaan File:** `tasks-[feature-name].md` (contoh: `tasks-user-profile-editing.md`)
 
 ## Proses Detail
@@ -24,7 +24,7 @@ Membimbing AI Agent untuk membuat daftar tugas (task list) yang terstruktur, men
     - Masukkan checkpoint pengujian (Unit/E2E test) dan verifikasi (linting/typecheck) di setiap fase akhir.
 5.  **Identifikasi File Terkait:**
     - Tulis daftar file yang akan dibuat baru maupun dimodifikasi, lengkap dengan deskripsi singkat kegunaannya.
-6.  **Simpan Berkas:** Buat direktori `/tasks/` jika belum ada, dan simpan dengan nama file yang sesuai.
+6.  **Simpan Berkas:** Buat direktori dokumentasi proyek jika belum ada, dan simpan dengan nama file yang sesuai.
 
 ## Format Dokumen Output
 
@@ -41,7 +41,7 @@ Membimbing AI Agent untuk membuat daftar tugas (task list) yang terstruktur, men
 ### Notes
 
 - Unit test diletakkan di direktori yang sama dengan komponen yang diuji.
-- Jalankan test suite lokal dengan command: `npm test [path/ke/file/test]` atau yang sesuai di proyek.
+- Jalankan test suite lokal dengan command: `npm test [path/ke/file/test]`, `pytest`, atau yang sesuai di proyek.
 
 ## Instructions for Completing Tasks
 
@@ -63,8 +63,8 @@ Membimbing AI Agent untuk membuat daftar tugas (task list) yang terstruktur, men
   - [ ] 3.2 Sambungkan input UI ke service API
   - [ ] 3.3 Tulis unit test untuk interaksi komponen UI
 - [ ] 4.0 Verifikasi Akhir
-  - [ ] 4.1 Jalankan linting (`npm run lint`) dan pastikan tidak ada warning/error
-  - [ ] 4.2 Jalankan typecheck (`npm run typecheck` atau compiler check)
+  - [ ] 4.1 Jalankan linting (perintah lint proyek, mis. `npm run lint`, `ruff`, `golangci-lint`) dan pastikan tidak ada warning/error
+  - [ ] 4.2 Jalankan typecheck (perintah compiler check proyek)
   - [ ] 4.3 Jalankan seluruh test suite proyek untuk memastikan tidak ada fitur lama yang rusak
 ```
 

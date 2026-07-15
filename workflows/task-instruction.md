@@ -1,6 +1,6 @@
 # Task Instruction (Step-by-Step Prompt)
 
-Panduan kerja terstruktur ini wajib diikuti oleh AI Agent sebelum dan selama melakukan perubahan kode pada repositori.
+Panduan kerja terstruktur ini wajib diikuti oleh AI Agent sebelum dan selama melakukan perubahan pada artefak proyek.
 
 ## Langkah 1: Eksplorasi & Pemahaman (Define)
 - Baca berkas deskripsi fitur (`PRD.md`) dan arsitektur (`ARCHITECTURE.md`).
@@ -20,5 +20,5 @@ Panduan kerja terstruktur ini wajib diikuti oleh AI Agent sebelum dan selama mel
 - Lakukan pengecekan manual atau verifikasi output untuk memastikan fitur berjalan sesuai kriteria penerimaan.
 
 ## Langkah 5: Review & Finishing (Review)
-- Lakukan linting dan typecheck (`npm run lint`, `npm run typecheck`, atau sejenisnya).
+- Lakukan linting dan typecheck (perintah lint proyek, mis. `npm run lint`, `ruff`, `golangci-lint`, atau sejenisnya).
 - Bersihkan kode dari console log percobaan atau komentar debug sebelum menyerahkan hasil akhir.

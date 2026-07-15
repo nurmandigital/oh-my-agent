@@ -1,6 +1,10 @@
 # Kelola Provider (Tambah & Update)
 
-Prosedur menambah provider baru atau memperbarui konfigurasi provider yang sudah ada di `opencode.json`. Prosedur ini mendukung dua mode: **Mode Tambah** (provider belum ada) dan **Mode Update** (provider sudah ada).
+> ⚠️ **Contoh untuk OpenCode.** Prosedur ini menggunakan `opencode.json` sebagai referensi konfigurasi dan mengikuti schema provider OpenCode. Jika Anda menggunakan tool lain, sesuaikan nama file konfigurasi, schema JSON, dan perintah restart sesuai tool Anda.
+
+---
+
+Prosedur menambah provider baru atau memperbarui konfigurasi provider yang sudah ada di file konfigurasi agen (contoh: `opencode.json`). Prosedur ini mendukung dua mode: **Mode Tambah** (provider belum ada) dan **Mode Update** (provider sudah ada).
 
 ---
 
@@ -30,8 +34,8 @@ curl -s "$baseURL/models" -H "Authorization: Bearer $apiKey" | jq -r '.data[].id
 - Jika gagal (timeout / 401 / 403), tampilkan pesan error dan **hentikan proses**. Jangan lanjutkan sampai pengguna memperbaiki kredensial.
 - Jika sukses, tampilkan daftar model yang tersedia (maksimal 20 nama pertama; jika lebih, ringkas dengan `...dan X model lainnya`).
 
-### Langkah 3: Cek Duplikat di `opencode.json`
-Baca `opencode.json`, cek apakah key `provider["<nama>"]` sudah ada.
+### Langkah 3: Cek Duplikat di File Konfigurasi
+Baca file konfigurasi agen, cek apakah key `provider["<nama>"]` sudah ada.
 - **Jika belum ada**: Lanjut ke Mode Tambah (Langkah 4).
 - **Jika sudah ada**: Tampilkan konfigurasi existing dan tawarkan:
   - A: **Update provider** yang sudah ada (lompat ke Mode 2)
@@ -42,11 +46,11 @@ Tampilkan ringkasan yang akan ditambahkan (mask API key):
 ```
 Provider: myprovider
 Base URL: https://api.myprovider.com/v1
-Models  : gpt-4o-mini, gpt-4o, claude-3.5-sonnet (3 model)
+Models  : model-lite, model-full, model-pro (3 model)
 ```
 
 Minta konfirmasi pengguna (`y/n`). Jika `y`:
-1. Baca `opencode.json` utuh.
+1. Baca file konfigurasi agen utuh.
 2. Tambahkan entry baru di dalam block `"provider": { ... }`:
 ```json
 "<nama-provider>": {
@@ -64,14 +68,15 @@ Minta konfirmasi pengguna (`y/n`). Jika `y`:
 ```
 
 **Aturan Field:**
-- `"api"`: selalu `"openai"` untuk provider yang kompatibel dengan OpenAI API.
+- `"api"`: selalu `"openai"` untuk provider yang kompatibel dengan OpenAI API (format OpenCode).
 - `"name"`: gunakan huruf kapital di awal kata (contoh: `"My Provider"`).
 - `"options.baseURL"`: sudah diakhiri `/v1` — jangan tambahkan `/v1` lagi. Jika provider menambahkan `/v1` di belakang layar, gunakan base URL tanpa `/v1`.
 
 ### Langkah 5: Validasi JSON
 Setelah edit:
-- **PowerShell**: `Get-Content opencode.json | ConvertFrom-Json | Out-Null`
-- **Bash**: `python -m json.tool opencode.json > nul`
+- **PowerShell**: `Get-Content config.json | ConvertFrom-Json | Out-Null`
+- **Bash**: `python -m json.tool config.json > /dev/null`
+- **Alternatif universal**: `jq empty config.json` (jika jq tersedia)
 
 Jika gagal: **ROLLBACK** perubahan dan laporkan error. Jangan tinggalkan config dalam state rusak.
 
@@ -80,7 +85,7 @@ Tampilkan pesan sukses:
 ```
 ✅ Provider "myprovider" berhasil ditambahkan dengan 3 model.
 
-⚠️  Silakan restart OpenCode agar perubahan diterapkan.
+⚠️  Silakan restart aplikasi agen Anda agar perubahan diterapkan.
 ```
 
 ---
@@ -88,15 +93,15 @@ Tampilkan pesan sukses:
 ## Mode 2: Update Provider yang Sudah Ada
 
 ### Langkah 1: Identifikasi Provider
-Tampilkan daftar provider yang ada di `opencode.json` (tanpa API key) dan tanyakan nama provider yang ingin diperbarui. Pengguna boleh menjawab `list` untuk melihat daftar.
+Tampilkan daftar provider yang ada di file konfigurasi (tanpa API key) dan tanyakan nama provider yang ingin diperbarui. Pengguna boleh menjawab `list` untuk melihat daftar.
 
 ### Langkah 2: Tampilkan Konfigurasi Saat Ini
-Baca entry provider dari `opencode.json` dan tampilkan (mask API key):
+Baca entry provider dari file konfigurasi dan tampilkan (mask API key):
 ```
 Provider saat ini: myprovider
 Base URL          : https://api.myprovider.com/v1
 API Key           : ***...b3f2
-Models            : gpt-4o-mini, gpt-4o (2 model)
+Models            : model-lite, model-full (2 model)
 ```
 
 ### Langkah 3: Pilih yang Ingin Diubah
@@ -119,9 +124,9 @@ Base URL:
 - https://api-old.example.com/v1
 + https://api-new.example.com/v1
 Models:
-- gpt-3.5-turbo (HAPUS)
-+ gpt-4o-mini (BARU)
-  gpt-4o (TETAP)
+- model-basic (HAPUS)
++ model-lite (BARU)
+  model-full (TETAP)
 ```
 
 Minta konfirmasi pengguna (`y/n`). Jika `y`, terapkan perubahan, validasi JSON, dan tampilkan pesan sukses.
