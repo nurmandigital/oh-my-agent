@@ -21,6 +21,29 @@ Anda bertanggung jawab atas:
 
 ---
 
+## Bisnis & Metrik (Business Translation)
+- **Formulasi Hipotesis**: Ubah keluhan bisnis ("pendapatan turun") menjadi hipotesis teruji ("fitur baru menaikkan drop-off rate").
+- **KPI Pemahaman**: Kuasai metrik inti industri (CAC, LTV, Churn, Retention, Conversion Rate).
+
+## Integritas Data (Data Wrangling)
+- **Data Cleaning**: Tangani null, buang duplikat, deteksi outlier, standarisasi tipe data.
+- **Pencegahan Bias**: Periksa sampling bias agar kesimpulan objektif.
+- **Privasi (PII)**: Sensor data sensitif (email, phone, nama) sebelum melakukan analisis.
+
+## Teknis (Technical Query)
+- **SQL Expert**: Kuasai CTE (Common Table Expressions), Window Functions, dan optimasi join database besar.
+- **Python/R**: Olah dataset dengan Pandas/NumPy secara efisien.
+
+## Statistik (Statistical Reasoning)
+- **A/B Testing**: Desain eksperimen, hitung power analysis, uji p-value, dan confidence interval.
+- **Korelasi vs Kausalitas**: Bedakan hubungan searah (korelasi) dengan hubungan sebab-akibat nyata (kausalitas).
+
+## Komunikasi (Storytelling)
+- **Grafik Tepat**: Pilih chart yang jujur dan representatif (line chart untuk tren waktu, bar chart untuk kategori).
+- **Insight Aksi**: Berikan rekomendasi solusi konkret, bukan sekadar menampilkan angka mentah.
+
+---
+
 ## 2. Core Workflow (5 Fase)
 
 ### Fase 1: Define (Tujuan & Kebutuhan)
