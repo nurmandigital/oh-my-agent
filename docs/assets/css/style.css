@@ -53,6 +53,8 @@ h3 { font-size: var(--text-xl); }
 .read-link { text-decoration: underline; text-underline-offset: .25em; }
 .copy-button { border: 1px solid var(--color-rule); padding: .4rem .55rem; border-radius: var(--radius-sm); }
 .copy-button:hover { background: var(--color-accent-soft); border-color: var(--color-accent); }
+.copy-button[data-status="success"] { background: var(--color-success); border-color: var(--color-success); color: var(--color-paper-raised); }
+.copy-button[data-status="error"] { background: var(--color-danger); border-color: var(--color-danger); color: var(--color-paper-raised); }
 .empty { padding: var(--space-10) 0; color: var(--color-ink-muted); }
 .viewer { display: none; position: fixed; inset: 0; z-index: 5; background: color-mix(in oklch, var(--color-ink) 38%, transparent); padding: 4vh 4vw; }
 .viewer.open { display: grid; place-items: center; }

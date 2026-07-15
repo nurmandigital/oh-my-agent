@@ -52,13 +52,63 @@ function render() {
 
 function escapeHtml(value) { return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char])); }
 function findItem(path) { return state.items.find((item) => item.path === path); }
-async function copyItem(path, button) { const item = findItem(path); if (!item) return; await navigator.clipboard.writeText(item.content); const label = button.textContent; button.textContent = 'Copied'; setTimeout(() => { button.textContent = label; }, 1200); }
+async function writeClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  if (!document.execCommand('copy')) throw new Error('Clipboard unavailable');
+  textarea.remove();
+}
+
+async function copyItem(path, button) {
+  const item = findItem(path);
+  if (!item) return;
+  const label = button.textContent;
+  try {
+    await writeClipboard(item.content);
+    button.textContent = 'Copied';
+    button.dataset.status = 'success';
+  } catch (error) {
+    button.textContent = 'Copy failed';
+    button.dataset.status = 'error';
+    console.error(error);
+  }
+  setTimeout(() => {
+    button.textContent = label;
+    delete button.dataset.status;
+  }, 1200);
+}
+
 function openViewer(path) { const item = findItem(path); if (!item) return; state.current = item; $('#viewer-title').textContent = item.title; $('#viewer-content').innerHTML = DOMPurify.sanitize(marked.parse(item.content)); $('#viewer').classList.add('open'); $('#close-viewer').focus(); document.body.style.overflow = 'hidden'; }
 function closeViewer() { $('#viewer').classList.remove('open'); document.body.style.overflow = ''; state.current = null; }
 
 $('#search').addEventListener('input', (event) => { state.query = event.target.value; render(); });
 $('#close-viewer').addEventListener('click', closeViewer);
-$('#copy-viewer').addEventListener('click', async (event) => { if (!state.current) return; await navigator.clipboard.writeText(state.current.content); event.currentTarget.textContent = 'Copied'; setTimeout(() => { event.currentTarget.textContent = 'Copy markdown'; }, 1200); });
+$('#copy-viewer').addEventListener('click', async (event) => {
+  const button = event.currentTarget;
+  if (!state.current) return;
+  try {
+    await writeClipboard(state.current.content);
+    button.textContent = 'Copied';
+    button.dataset.status = 'success';
+  } catch (error) {
+    button.textContent = 'Copy failed';
+    button.dataset.status = 'error';
+    console.error(error);
+  }
+  setTimeout(() => {
+    button.textContent = 'Copy markdown';
+    delete button.dataset.status;
+  }, 1200);
+});
 $('#viewer').addEventListener('click', (event) => { if (event.target.id === 'viewer') closeViewer(); });
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeViewer(); });
 init();
