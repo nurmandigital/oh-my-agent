@@ -7,7 +7,7 @@ const results = $('#results');
 
 async function init() {
   try {
-    const response = await fetch('data/catalog.json?v=3');
+    const response = await fetch('data/catalog.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.items = await response.json();
     $('#total-count').textContent = state.items.length;
