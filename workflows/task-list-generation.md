@@ -1,3 +1,14 @@
+---
+name: task-list-generation
+title: Task List Generation
+order: 7
+phase: Plan work
+usage: Use after planning docs
+condition: Always
+output: templates/TASK_LIST.md
+next: workflows/task-instruction.md
+---
+
 # Task List Generation Workflow
 
 ## Goal

@@ -1,3 +1,14 @@
+---
+name: prd-generation
+title: PRD Generation
+order: 2
+phase: Define
+usage: Copy first
+condition: Always
+output: templates/PRD.md
+next: workflows/architecture-generation.md
+---
+
 # PRD Generation Workflow
 
 ## Goal

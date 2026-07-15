@@ -1,3 +1,14 @@
+---
+name: code-review-workflow
+title: Code Review Workflow
+order: 10
+phase: Review
+usage: Use before merge
+condition: Before merge
+output: templates/CODE_REVIEW.md
+next: workflows/deployment-workflow.md
+---
+
 # Code Review Workflow
 
 Workflow read-only untuk meninjau perubahan kode dan menghasilkan laporan serta remediation task tanpa memodifikasi implementasi.

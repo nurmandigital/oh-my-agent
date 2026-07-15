@@ -1,3 +1,14 @@
+---
+name: deployment-workflow
+title: Deployment Workflow
+order: 11
+phase: Deploy
+usage: Use for a release
+condition: Release only
+output: templates/DEPLOYMENT.md
+next: Complete
+---
+
 # Deployment Workflow
 
 ## Goal

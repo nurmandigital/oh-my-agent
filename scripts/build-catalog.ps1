@@ -12,7 +12,7 @@ $items = foreach ($folder in $folders) {
     $frontmatter = [regex]::Match($rawContent, '\A---\r?\n(?<yaml>[\s\S]*?)\r?\n---\s*(?:\r?\n)?')
     if ($frontmatter.Success) {
       $frontmatter.Groups['yaml'].Value -split '\r?\n' | ForEach-Object {
-        $property = [regex]::Match($_, '^(name|description):\s*(.*)$')
+        $property = [regex]::Match($_, '^(name|title|description|order|phase|usage|condition|output|next):\s*(.*)$')
         if ($property.Success) { $metadata[$property.Groups[1].Value] = $property.Groups[2].Value.Trim(' ', '"', "'") }
       }
       $content = $rawContent.Substring($frontmatter.Length)
@@ -27,5 +27,6 @@ $items = foreach ($folder in $folders) {
     [PSCustomObject]@{ title = $title; kind = $kind; path = $relative; description = $description; metadata = $metadata; content = $content; rawContent = $rawContent }
   }
 }
-$items | Sort-Object kind, title | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $output -Encoding utf8
+$items = $items | Sort-Object @{ Expression = { if ($_.kind -eq 'Workflows' -and $_.metadata.order) { [int]$_.metadata.order } else { 999 } } }, kind, title
+$items | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $output -Encoding utf8
 Write-Host "Generated $($items.Count) entries → $output"

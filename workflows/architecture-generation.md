@@ -1,3 +1,14 @@
+---
+name: architecture-generation
+title: Architecture Generation
+order: 3
+phase: Architect
+usage: Use after PRD
+condition: Recommended
+output: templates/ARCHITECTURE.md
+next: workflows/design-generation.md
+---
+
 # Architecture Generation Workflow
 
 ## Goal

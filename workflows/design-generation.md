@@ -1,3 +1,14 @@
+---
+name: design-generation
+title: Design Generation
+order: 4
+phase: Design
+usage: Use after Architecture
+condition: UI only
+output: templates/DESIGN.md
+next: workflows/security-planning.md
+---
+
 # Design Generation Workflow
 
 ## Goal

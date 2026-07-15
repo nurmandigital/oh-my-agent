@@ -1,3 +1,14 @@
+---
+name: testing-planning
+title: Testing Planning
+order: 6
+phase: Testing
+usage: Use before task planning
+condition: Recommended
+output: templates/TESTING.md
+next: workflows/task-list-generation.md
+---
+
 # Testing Planning Workflow
 
 ## Goal

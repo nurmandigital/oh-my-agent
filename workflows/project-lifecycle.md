@@ -1,3 +1,14 @@
+---
+name: project-lifecycle
+title: Project Lifecycle
+order: 1
+phase: Start here
+usage: Copy first
+condition: Always
+output: Lifecycle map
+next: workflows/prd-generation.md
+---
+
 # Project Lifecycle Workflow
 
 Workflow induk untuk memilih dan mengurutkan artefak proyek. Tidak semua fase wajib; gunakan sesuai risiko dan scope.

@@ -1,3 +1,14 @@
+---
+name: security-planning
+title: Security Planning
+order: 5
+phase: Security
+usage: Use after Architecture
+condition: Risk-sensitive changes
+output: templates/SECURITY.md
+next: workflows/testing-planning.md
+---
+
 # Security Planning Workflow
 
 ## Goal

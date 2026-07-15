@@ -30,6 +30,7 @@ oh-my-agent/
 - `workflows/` berisi prompt/prosedur untuk menghasilkan artefak atau menjalankan proses kerja.
 - `templates/` berisi struktur output Markdown yang dihasilkan workflow.
 - `workflows/project-lifecycle.md` menjadi peta urutan dan handoff antarfase.
+- Panduan copy/paste untuk user tersedia di [`docs/WORKFLOW_GUIDE.md`](docs/WORKFLOW_GUIDE.md).
 
 ## Recommended Project Lifecycle
 

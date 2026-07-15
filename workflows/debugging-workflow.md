@@ -1,3 +1,14 @@
+---
+name: debugging-workflow
+title: Debugging Workflow
+order: 9
+phase: Debug
+usage: Use when an error occurs
+condition: Error only
+output: Root-cause evidence and verified fix
+next: workflows/code-review-workflow.md
+---
+
 # Debugging Workflow
 
 ## Goal

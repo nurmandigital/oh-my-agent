@@ -1,3 +1,14 @@
+---
+name: task-instruction
+title: Task Instruction
+order: 8
+phase: Build
+usage: Use during implementation
+condition: Always
+output: Implementation evidence
+next: workflows/code-review-workflow.md
+---
+
 # Task Instruction Workflow
 
 ## Role
