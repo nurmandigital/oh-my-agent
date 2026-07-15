@@ -64,6 +64,10 @@ h3 { font-size: var(--text-xl); }
 .close-button { border: 0; background: var(--color-ink); color: var(--color-paper-raised); padding: .45rem .7rem; font-family: var(--font-mono); }
 .viewer-body { padding: var(--space-6); }
 .markdown-body { color: var(--color-ink); max-width: 74ch; }
+.file-meta { border-left: 4px solid var(--color-accent); background: var(--color-accent-soft); margin: 0 0 var(--space-8); padding: var(--space-4) var(--space-5); }
+.file-meta-label { display: block; color: var(--color-accent-strong); font: 500 var(--text-xs)/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; margin-bottom: var(--space-3); }
+.file-meta-name { font: 600 var(--text-base)/1.2 var(--font-mono); color: var(--color-ink); }
+.file-meta-description { color: var(--color-ink-muted); font-size: var(--text-sm); margin: var(--space-2) 0 0; }
 .markdown-body > :first-child { margin-top: 0; }
 .markdown-body > :last-child { margin-bottom: 0; }
 .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 { font-family: var(--font-display); font-style: normal; letter-spacing: -.045em; line-height: 1.08; overflow-wrap: anywhere; }

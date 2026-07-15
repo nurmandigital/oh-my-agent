@@ -1,33 +1,53 @@
 # Product Requirements Document (PRD): [Nama Fitur]
 
-## 1. Introduction & Overview
-- **Deskripsi**: [Deskripsi singkat fitur dan masalah yang diselesaikan.]
-- **Tujuan Utama**: [Tujuan dibangunnya fitur ini.]
+## Metadata
+- **Status:** Draft | In Review | Approved
+- **Owner:** [Nama]
+- **Date:** [YYYY-MM-DD]
+- **Source brief:** [Link/path]
 
-## 2. Goals
-- [ ] [Objective 1 - Terukur & Spesifik]
-- [ ] [Objective 2 - Terukur & Spesifik]
+## 1. Problem & Overview
+- **User/problem:** [Siapa mengalami apa? Evidence bila ada.]
+- **Proposed outcome:** [Perubahan yang diinginkan.]
+- **Goals:** [Tujuan produk yang spesifik.]
+
+## 2. Scope
+### In Scope
+- [..]
+### Non-Goals / Out of Scope
+- [..]
 
 ## 3. User Stories
-- **Sebagai** [Peran Pengguna], **saya ingin** [Melakukan Aksi], **sehingga** [Manfaat yang didapatkan].
+- Sebagai **[role]**, saya ingin **[action]**, sehingga **[benefit]**.
 
-## 4. Functional Requirements
-1. [Kebutuhan Fungsional 1 - misal: Sistem harus memungkinkan pengguna mengunggah foto profil.]
-2. [Kebutuhan Fungsional 2 - misal: Sistem harus memvalidasi ukuran file gambar maksimal 2MB.]
+## 4. Requirements
+### Functional Requirements
+1. **FR-001:** Sistem harus [behavior observable].
+### Non-Functional Requirements
+- **NFR-001:** [Performance/security/accessibility/reliability requirement bila benar-benar diperlukan.]
 
-## 5. Non-Goals (Out of Scope)
-- [ ] [Fitur atau skenario yang sengaja tidak ditangani pada fase ini untuk mencegah scope creep.]
+## 5. Acceptance Criteria
+- **AC-001 — [judul]:**
+  - Given [konteks]
+  - When [aksi]
+  - Then [hasil observable]
+- **AC-002 — [judul]:** [..]
 
-## 6. Design Considerations (Optional)
-- **UI/UX Requirements**: [Aturan tampilan, token desain, atau link mockup jika ada.]
+## 6. UX/Design Considerations
+- [Link `DESIGN.md`/mockup atau `Tidak relevan`.]
 
-## 7. Technical Considerations (Optional)
-- **Dependensi**: [Library baru, modul internal yang wajib digunakan.]
-- **Batasan**: [Kendala arsitektur atau infrastruktur yang diketahui.]
+## 7. Technical Constraints & Dependencies
+- [Existing system, integration, compatibility, atau `Belum ditentukan`.]
 
-## 8. Success Metrics
-- [Misal: Meningkatkan konversi pendaftaran sebesar 15%]
-- [Misal: Mengurangi error submission formulir di bawah 1%]
+## 8. Success Measurement
+- **Metric:** [Hanya metric yang diberikan/diakui stakeholder.]
+- **Baseline/target:** [Nilai nyata atau `TBD — perlu konfirmasi`].
+- Jika belum ada metric: jelaskan sinyal kualitatif atau acceptance evidence yang dipakai.
 
-## 9. Open Questions
-- [Pertanyaan tersisa yang masih memerlukan keputusan tim bisnis atau teknis.]
+## 9. Assumptions & Open Questions
+- **Assumption:** [..]
+- **Open question:** [..]
+
+## 10. Approval
+- **Approved by:** [Nama/status]
+- **Date:** [YYYY-MM-DD]

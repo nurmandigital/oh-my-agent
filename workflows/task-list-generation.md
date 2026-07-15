@@ -1,73 +1,28 @@
-# Rule: Generating a Task List from User Requirements
+# Task List Generation Workflow
 
 ## Goal
+Mengubah PRD dan dokumen pendukung menjadi task list implementasi yang berurutan, atomic, dan dapat diverifikasi.
 
-Membimbing AI Agent untuk membuat daftar tugas (task list) yang terstruktur, mendetail, dan bertahap dalam format Markdown berdasarkan kebutuhan pengguna, dokumentasi fitur, atau spesifikasi sistem. Daftar tugas ini harus bisa langsung digunakan sebagai panduan eksekusi implementer.
+## Input
+- Wajib: PRD + acceptance criteria.
+- Bila tersedia: `ARCHITECTURE.md`, `DESIGN.md`, `SECURITY.md`, `TESTING.md`, existing code, dan constraints.
+
+## Proses
+1. Baca semua input; catat dokumen yang tidak tersedia sebagai limitation.
+2. Identifikasi dependency, risk, migration, affected files, dan pekerjaan lintas layer.
+3. Tampilkan 4–6 parent task untuk persetujuan awal; jangan menulis detail seolah sudah disetujui.
+4. Setelah user menyetujui, pecah menjadi subtask atomic dengan satu outcome jelas.
+5. Setiap acceptance criterion harus punya task/test/verification yang membuktikannya.
+6. Gunakan `templates/TASK_LIST.md`; jangan mengarang path atau command. Tandai unknown sebagai TBD.
+7. Sertakan verification checkpoint per fase, lalu final test/lint/typecheck/build hanya bila tersedia.
 
 ## Output
+- File `tasks-[feature-name].md` di direktori dokumentasi proyek yang disepakati.
+- Template resmi: `templates/TASK_LIST.md`.
 
-- **Format:** Markdown (`.md`)
-- **Lokasi:** Direktori dokumentasi proyek (mis. `docs/`, `tasks/`, atau `specs/`)
-- **Penamaan File:** `tasks-[feature-name].md` (contoh: `tasks-user-profile-editing.md`)
-
-## Proses Detail
-
-1.  **Analisis Kebutuhan:** AI menganalisis kebutuhan fungsional, non-fungsional, dependensi sistem, dan lingkup perubahan kode.
-2.  **Fase 1: Pembuatan Parent Tasks (High-Level):**
-    - Identifikasi 4-6 fase/tugas utama untuk menyelesaikan fitur.
-    - **PENTING:** Selalu masukkan tugas `0.0 Create feature branch` sebagai langkah pertama, kecuali diminta lain oleh pengguna.
-    - Tampilkan daftar tugas utama ini kepada pengguna terlebih dahulu untuk persetujuan awal.
-    - Tampilkan instruksi penutup: `"I have generated the high-level tasks based on your requirements. Ready to generate the sub-tasks? Respond with 'Go' to proceed."`
-3.  **Jeda & Konfirmasi:** AI berhenti dan menunggu pengguna membalas dengan `"Go"`.
-4.  **Fase 2: Pembuatan Sub-Tasks (Mendetail):**
-    - Setelah konfirmasi, pecah setiap parent task menjadi sub-task yang dapat ditindaklanjuti secara atomic (estimasi pengerjaan per sub-task tidak lebih dari 2 jam).
-    - Masukkan checkpoint pengujian (Unit/E2E test) dan verifikasi (linting/typecheck) di setiap fase akhir.
-5.  **Identifikasi File Terkait:**
-    - Tulis daftar file yang akan dibuat baru maupun dimodifikasi, lengkap dengan deskripsi singkat kegunaannya.
-6.  **Simpan Berkas:** Buat direktori dokumentasi proyek jika belum ada, dan simpan dengan nama file yang sesuai.
-
-## Format Dokumen Output
-
-```markdown
-# Tasks: [Nama Fitur/Proyek]
-
-## Relevant Files
-
-- `src/components/MyComponent.tsx` - Komponen utama untuk tampilan UI fitur ini.
-- `src/components/MyComponent.test.tsx` - Unit testing untuk menguji rendering dan interaksi komponen.
-- `src/services/api.ts` - Endpoint API baru untuk submit data ke server.
-- `src/services/api.test.ts` - Integrasi test untuk memastikan pemanggilan API sukses.
-
-### Notes
-
-- Unit test diletakkan di direktori yang sama dengan komponen yang diuji.
-- Jalankan test suite lokal dengan command: `npm test [path/ke/file/test]`, `pytest`, atau yang sesuai di proyek.
-
-## Instructions for Completing Tasks
-
-**PENTING:** Setiap kali sebuah tugas selesai dikerjakan, ubah tanda `- [ ]` menjadi `- [x]`. Lakukan pembaruan status ini sesegera mungkin per sub-task demi tracking progress yang akurat.
-
-## Tasks
-
-- [ ] 0.0 Create feature branch
-  - [ ] 0.1 Buat dan checkout ke branch baru (contoh: `git checkout -b feature/[feature-name]`)
-- [ ] 1.0 Setup & Fondasi Database/API
-  - [ ] 1.1 Buat skema database baru untuk fitur ini
-  - [ ] 1.2 Tulis migrasi database dan jalankan di server lokal
-  - [ ] 1.3 Implementasi endpoint API dasar
-- [ ] 2.0 Logika Bisnis & Integrasi Service
-  - [ ] 2.1 Buat service layer untuk mengolah data input
-  - [ ] 2.2 Tulis unit test untuk validasi data input
-- [ ] 3.0 UI Component & State Management
-  - [ ] 3.1 Buat komponen antarmuka pengguna sesuai spesifikasi desain
-  - [ ] 3.2 Sambungkan input UI ke service API
-  - [ ] 3.3 Tulis unit test untuk interaksi komponen UI
-- [ ] 4.0 Verifikasi Akhir
-  - [ ] 4.1 Jalankan linting (perintah lint proyek, mis. `npm run lint`, `ruff`, `golangci-lint`) dan pastikan tidak ada warning/error
-  - [ ] 4.2 Jalankan typecheck (perintah compiler check proyek)
-  - [ ] 4.3 Jalankan seluruh test suite proyek untuk memastikan tidak ada fitur lama yang rusak
-```
-
-## Panduan Interaksi AI
-
-AI wajib membagi proses ini menjadi dua turn interaksi (Fase High-Level -> Tunggu "Go" -> Fase Detil & Penulisan File) untuk menjaga agar rencana proyek tetap selaras dengan kebutuhan developer manusia.
+## Exit Checklist
+- [ ] PRD/AC menjadi source of truth.
+- [ ] Task punya dependency order dan relevant files.
+- [ ] Tidak ada task di luar scope tanpa approval.
+- [ ] Test, security, migration, dan rollback tercakup bila relevan.
+- [ ] Definition of Done dan evidence jelas.

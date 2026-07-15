@@ -1,33 +1,27 @@
-# Rule: Generating a Product Requirements Document (PRD)
+# PRD Generation Workflow
 
 ## Goal
+Mengubah brief menjadi requirement produk yang jelas, testable, dan disetujui sebelum keputusan teknis atau implementasi.
 
-Membimbing AI Agent untuk membuat dokumen Product Requirements Document (PRD) yang mendetail dalam format Markdown berdasarkan deskripsi awal dari pengguna. PRD harus jelas, dapat ditindaklanjuti, dan mudah dipahami oleh implementer untuk diimplementasikan.
+## Input
+- Problem/feature brief, target user, business context, constraint, dan evidence yang tersedia.
 
-## Proses Detail
+## Proses
+1. Ringkas masalah, pengguna, outcome, scope awal, dan fakta yang diketahui.
+2. Ajukan 3–5 pertanyaan klarifikasi paling blocking; beri opsi berlabel bila membantu, tanpa memaksa pilihan palsu.
+3. Bedakan fakta, asumsi, keputusan, dan open question.
+4. Susun PRD menggunakan `templates/PRD.md`.
+5. Tulis requirement bernomor dan acceptance criteria yang observable/testable.
+6. Jangan mengarang metric, testimonial, deadline, budget, atau stakeholder approval. Gunakan `TBD — perlu konfirmasi` atau hilangkan metric yang belum tersedia.
+7. Tampilkan draft untuk review; tandai status approved hanya setelah user/stakeholder menyetujui.
 
-1.  **Menerima Deskripsi Awal:** Pengguna memberikan deskripsi singkat tentang fitur atau fungsionalitas baru yang diinginkan.
-2.  **Mengajukan Pertanyaan Klarifikasi:** Sebelum menulis PRD, AI *wajib* mengajukan 3-5 pertanyaan klarifikasi yang paling krusial untuk melengkapi detail yang kurang.
-    - **Persyaratan Format Pertanyaan:**
-      - Berikan penomoran pada setiap pertanyaan (1, 2, 3, dst).
-      - Sediakan pilihan jawaban berlabel huruf (A, B, C, D, dst) untuk setiap pertanyaan agar pengguna mudah menjawab (misal: "1A, 2C, 3B").
-3.  **Membuat PRD:** Setelah pengguna menjawab pertanyaan klarifikasi, buat draf PRD lengkap menggunakan struktur di bawah.
-4.  **Menyimpan PRD:** Simpan PRD yang dihasilkan ke direktori dokumentasi proyek (mis. `docs/`, `tasks/`, atau `specs/`) dengan nama file `prd-[feature-name].md`.
+## Output
+- File `prd-[feature-name].md` di direktori dokumentasi proyek yang disepakati.
+- Template resmi: `templates/PRD.md`.
 
-## Struktur PRD
-
-Daftar struktur yang wajib ada di dalam PRD:
-
-1.  **Introduction/Overview:** Deskripsi singkat fitur, masalah yang ingin diselesaikan, dan tujuan utamanya.
-2.  **Goals:** Daftar tujuan spesifik dan terukur dari fitur ini.
-3.  **User Stories:** Narasi skenario penggunaan fitur oleh pengguna beserta keuntungan yang mereka dapatkan.
-4.  **Functional Requirements:** Daftar fungsi spesifik yang harus dimiliki fitur secara berurutan dan terperinci. (Contoh: "1. Sistem harus memungkinkan pengguna mengunggah foto profil.").
-5.  **Non-Goals (Out of Scope):** Daftar hal-hal yang tidak akan diimplementasikan pada fase ini untuk mencegah scope creep.
-6.  **Design Considerations (Opsional):** Tautan ke mockup desain, atau aturan styling UI/UX yang relevan.
-7.  **Technical Considerations (Opsional):** Kendala teknis yang diketahui, dependensi sistem, atau saran integrasi (misal: integrasi dengan modul autentikasi yang sudah ada).
-8.  **Success Metrics:** Metrik keberhasilan implementasi fitur (misal: "Mengurangi tiket komplain terkait X sebesar 10%").
-9.  **Open Questions:** Daftar pertanyaan tersisa yang membutuhkan klarifikasi atau keputusan lebih lanjut dari stakeholder di masa depan.
-
-## Target Pembaca
-
-Junior developer / implementer. Pastikan bahasa yang digunakan eksplisit, tidak ambigu, dan hindari jargon teknis yang tidak perlu agar alur logika fitur mudah dimengerti.
+## Exit Checklist
+- [ ] Problem, audience, goals, non-goals, dan scope jelas.
+- [ ] Functional/non-functional requirements bernomor.
+- [ ] Setiap behavior utama memiliki acceptance criteria.
+- [ ] Metric hanya memakai data user atau ditandai TBD.
+- [ ] Assumption dan open question terlihat jelas.

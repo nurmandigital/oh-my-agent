@@ -73,7 +73,7 @@ async function copyItem(path, button) {
   if (!item) return;
   const label = button.textContent;
   try {
-    await writeClipboard(item.content);
+    await writeClipboard(item.rawContent ?? item.content);
     button.textContent = 'Copied';
     button.dataset.status = 'success';
   } catch (error) {
@@ -87,7 +87,15 @@ async function copyItem(path, button) {
   }, 1200);
 }
 
-function openViewer(path) { const item = findItem(path); if (!item) return; state.current = item; $('#viewer-title').textContent = item.title; $('#viewer-content').innerHTML = DOMPurify.sanitize(marked.parse(item.content)); $('#viewer').classList.add('open'); $('#close-viewer').focus(); document.body.style.overflow = 'hidden'; }
+function markdownForViewer(item) {
+  const metadata = item.metadata || {};
+  const name = metadata.name ? `<div class="file-meta-name">${escapeHtml(metadata.name)}</div>` : '';
+  const description = metadata.description ? `<p class="file-meta-description">${escapeHtml(metadata.description)}</p>` : '';
+  const meta = name || description ? `<section class="file-meta"><span class="file-meta-label">File metadata</span>${name}${description}</section>` : '';
+  return `${meta}${DOMPurify.sanitize(marked.parse(item.content))}`;
+}
+
+function openViewer(path) { const item = findItem(path); if (!item) return; state.current = item; $('#viewer-title').textContent = item.title; $('#viewer-content').innerHTML = markdownForViewer(item); $('#viewer').classList.add('open'); $('#close-viewer').focus(); document.body.style.overflow = 'hidden'; }
 function closeViewer() { $('#viewer').classList.remove('open'); document.body.style.overflow = ''; state.current = null; }
 
 $('#search').addEventListener('input', (event) => { state.query = event.target.value; render(); });
@@ -96,7 +104,7 @@ $('#copy-viewer').addEventListener('click', async (event) => {
   const button = event.currentTarget;
   if (!state.current) return;
   try {
-    await writeClipboard(state.current.content);
+    await writeClipboard(state.current.rawContent ?? state.current.content);
     button.textContent = 'Copied';
     button.dataset.status = 'success';
   } catch (error) {

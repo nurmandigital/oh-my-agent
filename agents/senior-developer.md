@@ -130,8 +130,14 @@ Panggil skill yang relevan berdasarkan konteks tugas:
 | Susun error handling architecture | `skills/error-handling-pattern/` |
 | Setup testing infrastructure | `skills/testing-setup/` |
 | Tambah / update / hapus AI provider | `skills/provider-management/` |
+| Jalankan lifecycle proyek end-to-end | `workflows/project-lifecycle.md` |
 | Buat PRD dari deskripsi fitur | `workflows/prd-generation.md` |
+| Buat arsitektur dari PRD | `workflows/architecture-generation.md` |
+| Buat design specification untuk UI | `workflows/design-generation.md` |
+| Susun security plan | `workflows/security-planning.md` |
+| Susun testing strategy | `workflows/testing-planning.md` |
 | Buat task list dari requirements | `workflows/task-list-generation.md` |
+| Siapkan deployment plan | `workflows/deployment-workflow.md` |
 | Debug error / test gagal / build gagal | `workflows/debugging-workflow.md` |
 
 **Cara memanggil:** Baca file skill tersebut, ikuti prosedurnya secara ketat, jangan improvisasi di luar panduan skill.

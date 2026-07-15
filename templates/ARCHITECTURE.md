@@ -1,26 +1,46 @@
-# Architecture Document
+# Architecture Document: [Nama Sistem/Fitur]
 
-## 1. Struktur Direktori
-[Tulis peta struktur folder penting di proyek ini beserta fungsinya.]
+## Metadata
+- **Status:** Draft | Approved
+- **Source PRD:** `[path]`
+- **Owner/date:** [..]
+
+## 1. Context & Constraints
+- Requirement/acceptance criteria yang memengaruhi arsitektur.
+- Existing stack, runtime, compatibility, scale, dan operational constraints.
+
+## 2. System Boundaries
+- Actor, module/service, external dependency, ownership, dan trust boundary.
+
 ```text
-src/
-├── components/     # Komponen UI reusable
-├── hooks/          # Custom hooks React (jika ada)
-├── services/       # Logika integrasi API / DB
-└── utils/          # Fungsi utility/helper murni
+[Diagram teks atau link diagram]
 ```
 
-## 2. Alur Data & Komunikasi Komponen
-- Komponen UI memicu aksi via `services/`.
-- `services/` melakukan pemanggilan API/Database.
-- Respons data divalidasi menggunakan skema validasi sebelum dikembalikan ke UI state.
+## 3. Components & Responsibilities
+| Component | Responsibility | Interface/Dependency |
+|---|---|---|
+| [..] | [..] | [..] |
 
-## 3. Skema Basis Data (Jika Ada)
-- **Tabel `users`**:
-  - `id` (UUID, Primary Key)
-  - `email` (String, Unique)
-  - `created_at` (Timestamp)
+## 4. Data & Control Flow
+1. [Request/event flow]
+2. [Validation/business/storage/response flow]
 
-## 4. Pola Pengembangan Kode (Patterns)
-- Hindari logic berlebih di file komponen UI.
-- Simpan helper murni dalam folder `utils/` agar mudah di-test.
+## 5. Contracts
+- API/event/schema, errors, idempotency, versioning, dan compatibility.
+
+## 6. Data Model & Storage
+- Entity/schema, ownership, retention, migration, index, consistency, dan backup bila relevan.
+
+## 7. Reliability, Security & Observability
+- Failure modes, retries/timeouts, logs/metrics/traces, auth boundaries; refer `SECURITY.md` bila tersedia.
+
+## 8. Decisions & Trade-offs
+| Decision | Alternatives | Reason | Consequence |
+|---|---|---|---|
+| [..] | [..] | [..] | [..] |
+
+## 9. Migration & Rollback
+- [Sequence, compatibility window, rollback trigger/steps, atau `Tidak relevan`.]
+
+## 10. Risks & Open Questions
+- [..]

@@ -1,21 +1,43 @@
-# Design System & Styling Guide
+# Design Specification: [Nama Fitur]
 
-## 1. Palet Warna
-- **Primary**: `bg-indigo-600` / `#4f46e5` (Tombol utama, link aktif)
-- **Secondary**: `bg-gray-600` / `#4b5563` (Tombol batal, teks sekunder)
-- **Success**: `bg-emerald-600` / `#059669` (Notifikasi sukses, status aktif)
-- **Danger**: `bg-rose-600` / `#e11d48` (Notifikasi error, tombol hapus)
+## Metadata
+- **Status:** Draft | Approved
+- **Source PRD:** `[path]`
+- **Existing design system:** `[path/link atau none]`
 
-## 2. Tipografi
-- **Heading**: Inter / Sans-serif (Bold, tracking-tight)
-- **Body**: Inter / Sans-serif (Normal, leading-relaxed)
-- **Code**: JetBrains Mono / Fira Code (Monospace)
+## 1. Audience, Job & Tone
+- **Audience:** [..]
+- **Primary job/action:** [..]
+- **Tone:** [intentional design direction]
 
-## 3. Komponen UI Standar
-- **Tombol (Button)**:
-  - Harus memiliki visual hover `hover:bg-opacity-90`.
-  - Harus memiliki visual focus ring `focus:ring-2 focus:ring-offset-2`.
-  - Harus memiliki status loading (tampilkan spinner/disabled saat memproses).
-- **Form Input**:
-  - Tampilkan pesan error berwarna merah di bawah input jika validasi gagal.
-  - Border input berubah menjadi merah (`border-rose-500`) saat invalid.
+## 2. User Flow & Information Architecture
+1. [Entry]
+2. [Action]
+3. [Feedback/outcome]
+
+## 3. Layout & Responsive Behavior
+- Desktop/tablet/mobile structure, hierarchy, navigation, overflow, and content priority.
+
+## 4. Design Tokens
+| Role | Existing/New Token | Value/Reference | Usage |
+|---|---|---|---|
+| Color/type/space/radius | `--token` | [value] | [usage] |
+
+Do not invent brand colors/fonts when an existing system is available.
+
+## 5. Components & States
+| Component | Default | Loading | Empty | Error | Success | Disabled/Focus |
+|---|---|---|---|---|---|---|
+| [..] | [..] | [..] | [..] | [..] | [..] | [..] |
+
+## 6. Content & Interaction
+- Labels, validation copy, confirmation, keyboard behavior, and motion/reduced-motion.
+
+## 7. Accessibility
+- Semantic structure, keyboard order, focus visibility, contrast, labels, announcements, target size.
+
+## 8. Assets, Constraints & Handoff
+- Real assets supplied, placeholders, browser/device constraints, component/file ownership, unresolved questions.
+
+## 9. Acceptance Mapping
+- `AC-xxx` → screen/component/state that proves it.

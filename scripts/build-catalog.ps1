@@ -6,14 +6,25 @@ $items = foreach ($folder in $folders) {
   $base = Join-Path $root $folder
   if (-not (Test-Path -LiteralPath $base)) { continue }
   Get-ChildItem -LiteralPath $base -Recurse -File -Filter '*.md' | ForEach-Object {
-    $content = [IO.File]::ReadAllText($_.FullName)
+    $rawContent = [IO.File]::ReadAllText($_.FullName)
+    $content = $rawContent
+    $metadata = @{}
+    $frontmatter = [regex]::Match($rawContent, '\A---\r?\n(?<yaml>[\s\S]*?)\r?\n---\s*(?:\r?\n)?')
+    if ($frontmatter.Success) {
+      $frontmatter.Groups['yaml'].Value -split '\r?\n' | ForEach-Object {
+        $property = [regex]::Match($_, '^(name|description):\s*(.*)$')
+        if ($property.Success) { $metadata[$property.Groups[1].Value] = $property.Groups[2].Value.Trim(' ', '"', "'") }
+      }
+      $content = $rawContent.Substring($frontmatter.Length)
+    }
     $heading = [regex]::Match($content, '(?m)^#\s+(.+)$')
-    $title = if ($heading.Success) { $heading.Groups[1].Value.Trim() } else { [IO.Path]::GetFileNameWithoutExtension($_.Name) }
+    $title = if ($heading.Success) { $heading.Groups[1].Value.Trim() } elseif ($metadata.name) { $metadata.name } else { [IO.Path]::GetFileNameWithoutExtension($_.Name) }
     $plain = ($content -replace '(?m)^#{1,6}\s*', '' -replace '`', '' -replace '\*', '' -replace '\[(.*?)\]\(.*?\)', '$1' -replace '\s+', ' ').Trim()
-    $description = if ($plain.Length -gt 220) { $plain.Substring(0, 217) + '...' } else { $plain }
+    $sourceDescription = if ($metadata.description) { $metadata.description } else { $plain }
+    $description = if ($sourceDescription.Length -gt 220) { $sourceDescription.Substring(0, 217) + '...' } else { $sourceDescription }
     $relative = $_.FullName.Substring($root.Length + 1).Replace('\', '/')
     $kind = $folder.Substring(0, 1).ToUpper() + $folder.Substring(1)
-    [PSCustomObject]@{ title = $title; kind = $kind; path = $relative; description = $description; content = $content }
+    [PSCustomObject]@{ title = $title; kind = $kind; path = $relative; description = $description; metadata = $metadata; content = $content; rawContent = $rawContent }
   }
 }
 $items | Sort-Object kind, title | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $output -Encoding utf8

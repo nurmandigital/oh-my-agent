@@ -1,15 +1,36 @@
-# Quality Assurance & Testing Standard
+# Testing Strategy: [Nama Sistem/Fitur]
 
-## 1. Jenis Pengujian
-- **Unit Testing**: Menguji logic di level fungsi murni (`utils/`), helper, dan reducer.
-- **Integration Testing**: Menguji integrasi antar komponen atau API endpoint dengan mock database.
-- **E2E Testing**: Menguji alur utama aplikasi di browser menggunakan emulator (seperti Cypress atau Playwright).
+## Metadata
+- **Status:** Draft | Approved
+- **Source docs:** `[PRD/Architecture/Design/Security paths]`
+- **Owner/date:** [..]
 
-## 2. Cakupan Kode (Coverage Target)
-- Target minimal coverage untuk fungsionalitas inti (core logic) adalah **80%**.
-- Area krusial seperti sistem pembayaran, autentikasi, dan manipulasi data sensitif wajib memiliki coverage **100%**.
+## 1. Scope & Risks
+- In scope, out of scope, highest-risk behavior, compatibility/regression areas.
 
-## 3. Aturan Penulisan Test Case
-- Nama test case harus deskriptif (format: `should [expected behavior] when [scenario]`).
-- Gunakan struktur Arrange-Act-Assert (AAA).
-- Bersihkan database state atau mock instance setiap selesai melakukan pengujian (`afterEach` / `beforeEach`).
+## 2. Acceptance Criteria Matrix
+| AC | Scenario | Level | Environment/data | Evidence |
+|---|---|---|---|---|
+| AC-001 | [..] | Unit/Integration/Contract/E2E/Manual | [..] | [..] |
+
+## 3. Test Layers
+- Unit, integration, contract, E2E, manual, security, performance/accessibility — include only relevant layers and rationale.
+
+## 4. Scenarios
+- Happy path.
+- Error/failure path.
+- Edge/boundary cases.
+- Regression and backward compatibility.
+
+## 5. Environment, Data & Isolation
+- Fixtures/factories, mocks, external services, cleanup, deterministic clock/network, no production data unless explicitly approved.
+
+## 6. Commands & CI
+- `[Use commands verified in the project; otherwise TBD.]`
+
+## 7. Coverage & Quality Gates
+- Use project-agreed targets. Do not invent percentage targets; prioritize critical behavior and risk evidence.
+- Exit gate: [tests/checks required before review/release].
+
+## 8. Limitations & Ownership
+- Untested areas, flaky risks, manual checks, owner, and follow-up.

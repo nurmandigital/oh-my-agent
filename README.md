@@ -25,6 +25,40 @@ oh-my-agent/
 5. **Gunakan template di `templates/`** untuk membuat dokumentasi proyek standar.
 6. **Gunakan skill di `skills/`** sebagai panduan teknis spesifik (setup stack, migrasi DB, dll).
 
+## Workflow vs Template
+
+- `workflows/` berisi prompt/prosedur untuk menghasilkan artefak atau menjalankan proses kerja.
+- `templates/` berisi struktur output Markdown yang dihasilkan workflow.
+- `workflows/project-lifecycle.md` menjadi peta urutan dan handoff antarfase.
+
+## Recommended Project Lifecycle
+
+```text
+Brief
+→ PRD
+→ Architecture
+→ Design (jika ada UI)
+→ Security
+→ Testing
+→ Task List
+→ Implementation / Debugging
+→ Code Review
+→ Deployment
+```
+
+| Phase | Workflow | Template/output |
+|---|---|---|
+| PRD | `workflows/prd-generation.md` | `templates/PRD.md` |
+| Architecture | `workflows/architecture-generation.md` | `templates/ARCHITECTURE.md` |
+| Design | `workflows/design-generation.md` | `templates/DESIGN.md` |
+| Security | `workflows/security-planning.md` | `templates/SECURITY.md` |
+| Testing | `workflows/testing-planning.md` | `templates/TESTING.md` |
+| Task List | `workflows/task-list-generation.md` | `templates/TASK_LIST.md` |
+| Execution | `workflows/task-instruction.md` | Implementasi + task status |
+| Debugging | `workflows/debugging-workflow.md` | Root cause + verified fix |
+| Review | `workflows/code-review-workflow.md` | `templates/CODE_REVIEW.md` + task kondisional |
+| Deployment | `workflows/deployment-workflow.md` | `templates/DEPLOYMENT.md` |
+
 ## Kompatibilitas & Scope
 
 Kit ini dirancang untuk **semua platform AI agent**. Namun, tidak semua file relevan untuk semua konteks. Berikut taksonomi setiap file:

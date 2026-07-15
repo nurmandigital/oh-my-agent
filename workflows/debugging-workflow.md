@@ -1,23 +1,28 @@
 # Debugging Workflow
 
-Gunakan alur sistematis ini saat mendeteksi adanya bug, error pada testing, atau kegagalan kompilasi (build).
+## Goal
+Menemukan root cause, menerapkan fix terkecil yang benar, dan membuktikan regresi tidak kembali.
 
-## Langkah 1: Isolasi Masalah
-- Dapatkan pesan error lengkap (stack trace).
-- Identifikasi file dan baris kode yang memicu error tersebut.
-- Reproduksi error tersebut dengan input minimal (minimal reproducible example).
+## Input
+- Error lengkap, environment, reproduction steps, expected vs actual behavior, recent changes, dan relevant logs/tests.
 
-## Langkah 2: Analisis Penyebab Utama (Root Cause Analysis)
-- Ajukan pertanyaan:
-  - Apakah ini disebabkan oleh tipe data yang salah?
-  - Apakah ada state yang tidak ter-update dengan benar?
-  - Apakah ada dependensi eksternal yang gagal diakses (API timeout, DB offline)?
+## Process
+1. **Reproduce:** Dapatkan reproduksi minimal dan evidence sebelum mengubah kode.
+2. **Isolate:** Persempit layer, file, input, state, dependency, dan kondisi pemicu.
+3. **Hypothesize:** Susun hipotesis terurut; uji satu variabel per langkah. Bedakan symptom dari root cause.
+4. **Plan minimal fix:** Nilai impact, compatibility, data risk, dan rollback. Hindari rewrite tanpa bukti.
+5. **Regression test first bila feasible:** Tambahkan test yang gagal karena bug dan lulus setelah fix.
+6. **Implement:** Terapkan perubahan minimum; jangan bypass validation/type/security.
+7. **Verify:** Jalankan focused test, lalu suite/quality checks relevan dan acceptance criteria terkait.
+8. **Document:** Catat root cause, fix, evidence, limitation, dan prevention.
 
-## Langkah 3: Rancang Perbaikan Minimal
-- Buat solusi dengan dampak terkecil pada modul lain. Hindari menulis ulang seluruh modul jika masalah hanya ada pada satu baris validasi.
-- Tulis test case tambahan yang secara spesifik mengetes skenario kegagalan ini (regression testing).
+## Output
+- Verified fix atau diagnosis bila perubahan belum diizinkan.
+- Regression test untuk bug yang dapat diuji otomatis; jika tidak, dokumentasikan manual reproduction/verification.
 
-## Langkah 4: Terapkan dan Verifikasi
-- Terapkan perbaikan.
-- Jalankan kembali test case yang gagal sebelumnya untuk memastikan masalah selesai.
-- Jalankan seluruh rangkaian test suite untuk menjamin tidak ada fitur lain yang rusak akibat perbaikan ini.
+## Exit Checklist
+- [ ] Root cause didukung evidence.
+- [ ] Fix tidak hanya menyembunyikan symptom.
+- [ ] Regression scenario terbukti.
+- [ ] Relevant suite/quality checks dijalankan atau limitation dicatat.
+- [ ] Tidak ada destructive command, install, migration, atau deploy tanpa approval.
