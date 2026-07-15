@@ -7,7 +7,7 @@ const results = $('#results');
 
 async function init() {
   try {
-    const response = await fetch('data/catalog.json');
+    const response = await fetch('data/catalog.json?v=3');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.items = await response.json();
     $('#total-count').textContent = state.items.length;
@@ -53,7 +53,7 @@ function render() {
 function escapeHtml(value) { return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char])); }
 function findItem(path) { return state.items.find((item) => item.path === path); }
 async function copyItem(path, button) { const item = findItem(path); if (!item) return; await navigator.clipboard.writeText(item.content); const label = button.textContent; button.textContent = 'Copied'; setTimeout(() => { button.textContent = label; }, 1200); }
-function openViewer(path) { const item = findItem(path); if (!item) return; state.current = item; $('#viewer-title').textContent = item.title; $('#viewer-content').textContent = item.content; $('#viewer').classList.add('open'); $('#close-viewer').focus(); document.body.style.overflow = 'hidden'; }
+function openViewer(path) { const item = findItem(path); if (!item) return; state.current = item; $('#viewer-title').textContent = item.title; $('#viewer-content').innerHTML = DOMPurify.sanitize(marked.parse(item.content)); $('#viewer').classList.add('open'); $('#close-viewer').focus(); document.body.style.overflow = 'hidden'; }
 function closeViewer() { $('#viewer').classList.remove('open'); document.body.style.overflow = ''; state.current = null; }
 
 $('#search').addEventListener('input', (event) => { state.query = event.target.value; render(); });

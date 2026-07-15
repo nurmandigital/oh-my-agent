@@ -29,8 +29,10 @@
     </main>
   </div>
   <div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
-    <article class="viewer-panel"><header class="viewer-head"><h2 id="viewer-title">File</h2><div><button id="copy-viewer" class="copy-button" type="button">Copy markdown</button><button id="close-viewer" class="close-button" type="button" aria-label="Close viewer">Esc</button></div></header><div class="viewer-body"><pre id="viewer-content"></pre></div></article>
+    <article class="viewer-panel"><header class="viewer-head"><h2 id="viewer-title">File</h2><div><button id="copy-viewer" class="copy-button" type="button">Copy markdown</button><button id="close-viewer" class="close-button" type="button" aria-label="Close viewer">Esc</button></div></header><div id="viewer-content" class="viewer-body markdown-body"></div></article>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.12/dist/purify.min.js" defer></script>
   <script src="assets/js/app.js" defer></script>
 </body>
 </html>
