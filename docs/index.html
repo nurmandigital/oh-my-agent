@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Universal instructions, workflows, templates, guardrails, and skills for AI agents.">
+  <title>Oh My Agent — instruction kit</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail" aria-label="Catalog navigation">
+      <a class="brand" href="./"><span class="brand-mark">›_</span><span class="brand-name">oh my agent</span></a>
+      <p class="rail-note">A practical kit for agents that need to work clearly.</p>
+      <div>
+        <div class="nav-label">Browse by type</div>
+        <nav id="categories" class="category-list" aria-label="Categories"></nav>
+      </div>
+      <div class="rail-footer">Open source · <a href="https://github.com/nurmandigital/oh-my-agent">View on GitHub</a></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><span class="topbar-meta">UNIVERSAL AI AGENT KIT / v1</span><a class="github-link" href="https://github.com/nurmandigital/oh-my-agent">Repository ↗</a></header>
+      <section class="hero">
+        <div><div class="eyebrow">Ready to be copied</div><h1>Give your agent a better brief.</h1></div>
+        <div><p class="hero-copy">Reusable <strong>personas, workflows, guardrails, templates,</strong> and technical skills. Pick one. Read it. Put it in your agent.</p><div class="stat-line"><b id="total-count">—</b> practical files in the kit</div></div>
+      </section>
+      <section class="toolbar" aria-label="Search catalog"><label class="search-wrap"><span class="search-icon">/</span><input id="search" type="search" placeholder="Search files, topics, or keywords…" autocomplete="off"></label><span id="results" class="results" aria-live="polite">Loading…</span></section>
+      <section class="catalog"><div id="grid" class="grid"></div><p id="empty" class="empty" hidden>No files match that search.</p></section>
+    </main>
+  </div>
+  <div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
+    <article class="viewer-panel"><header class="viewer-head"><h2 id="viewer-title">File</h2><div><button id="copy-viewer" class="copy-button" type="button">Copy markdown</button><button id="close-viewer" class="close-button" type="button" aria-label="Close viewer">Esc</button></div></header><div class="viewer-body"><pre id="viewer-content"></pre></div></article>
+  </div>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

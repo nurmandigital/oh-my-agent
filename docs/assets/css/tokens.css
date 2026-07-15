@@ -1,0 +1,48 @@
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 */
+/* Hallmark · macrostructure: Workbench · genre: modern-minimal · theme: Cobalt
+ * audience: AI-agent users · use: find/read/copy instructions · tone: technical utilitarian
+ * nav: N3 side-rail · footer: Ft5 statement · enrichment: none
+ */
+:root {
+  --color-paper: oklch(97% 0.012 88);
+  --color-paper-raised: oklch(100% 0 0);
+  --color-paper-muted: oklch(92% 0.018 255);
+  --color-ink: oklch(19% 0.035 258);
+  --color-ink-muted: oklch(48% 0.035 258);
+  --color-accent: oklch(52% 0.19 255);
+  --color-accent-strong: oklch(42% 0.18 255);
+  --color-accent-soft: oklch(91% 0.045 255);
+  --color-rule: oklch(82% 0.025 255);
+  --color-focus: oklch(66% 0.2 48);
+  --color-success: oklch(49% 0.14 150);
+  --color-danger: oklch(52% 0.19 28);
+  --font-display: "Space Grotesk", "Arial Narrow", sans-serif;
+  --font-body: "IBM Plex Sans", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, monospace;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.35rem;
+  --text-2xl: clamp(1.8rem, 4vw, 3.5rem);
+  --text-display: clamp(2.5rem, 8vw, 7rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.6rem;
+  --rule-thin: 1px;
+  --rule-thick: 2px;
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
