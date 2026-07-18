@@ -32,9 +32,9 @@
     fetch('data/catalog.json')
       .then(function(r) { if (!r.ok) throw new Error('Failed to load catalog'); return r.json(); })
       .then(function(data) {
-        var workflows = data.filter(function(e) { return e.type === 'workflow' || e.kind === 'workflow'; });
-        var templates = data.filter(function(e) { return e.type === 'template' || e.kind === 'template'; });
-        var agents = data.filter(function(e) { return e.type === 'agent' || e.kind === 'agent'; });
+        var workflows = data.filter(function(e) { return e.kind === 'Workflows'; });
+        var templates = data.filter(function(e) { return e.kind === 'Templates'; });
+        var agents = data.filter(function(e) { return e.kind === 'Agents'; });
         var total = data.length;
 
         var stats = {
