@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Step-by-step workflow guide for oh-my-agent — which prompt to use, when, and what to expect.">
+  <link rel="icon" href="data:,">
+  <title>Workflow Guide — Oh My Agent</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+  <div class="d-shell">
+    <!-- ─── Navigation ─── -->
+    <nav class="d-nav">
+      <a class="d-nav-brand" href="./">
+        <span class="d-nav-mark">›_</span>
+        <span>oh my agent</span>
+      </a>
+      <div class="d-nav-links">
+        <a href="./">Dashboard</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="workflow-guide.html" class="active">Workflow Guide</a>
+        <a href="https://github.com/nurmandigital/oh-my-agent" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <!-- ─── Page Header ─── -->
+    <section class="d-section" style="padding-bottom:0;">
+      <div class="d-section-header">
+        <div class="d-eyebrow">Step-by-step</div>
+        <h2>Workflow Guide</h2>
+        <p>Copy these prompts <strong>in order</strong> — from product definition to deployment. Each phase builds on the previous one. Conditional phases (Design, Debugging) can be skipped when not needed.</p>
+      </div>
+
+      <div style="padding:var(--space-4) 0 var(--space-8);">
+        <p style="color:var(--color-ink-muted);font-size:var(--text-sm);margin:0 0 var(--space-4);"><strong>Handoff Rule:</strong> Each phase must pass the next phase: document path, decisions, assumptions, open questions, acceptance criteria, and risks.</p>
+        <div class="d-stats">
+          <div class="d-stat"><span class="d-stat-num">01</span><div class="d-stat-label">Start Here</div></div>
+          <div class="d-stat"><span class="d-stat-num">11</span><div class="d-stat-label">Total Workflows</div></div>
+          <div class="d-stat"><span class="d-stat-num">→</span><div class="d-stat-label">Linear Flow</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Accordion ─── -->
+    <section class="d-section" id="accordion-section">
+      <div class="d-accordion">
+
+        <!-- 01: Project Lifecycle -->
+        <div class="d-accordion-item" id="project-lifecycle">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">01</span> Project Lifecycle</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Mulai di sini paling awal. Dapatkan peta lifecycle keseluruhan sebelum menjalankan fase apapun. Workflow ini memberikan overview semua fase, conditional path, dan handoff rule.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Pertama kali, sebelum fase manapun</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=project-lifecycle">workflows/project-lifecycle.md</a></dd>
+              <dt>Output</dt>
+              <dd>Peta lifecycle + konteks project</dd>
+              <dt>Next</dt>
+              <dd>PRD Generation</dd>
+            </dl>
+            <p><strong>Tips:</strong> Cukup jalankan sekali per project. Simpan output sebagai referensi untuk semua fase selanjutnya.</p>
+          </div>
+        </div>
+
+        <!-- 02: PRD -->
+        <div class="d-accordion-item" id="prd">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">02</span> PRD Generation</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Tentukan produk — user pain, target audience, success metrics, constraint, dan scope. Workflow ini melakukan discovery mendalam sebelum arsitektur atau desain dimulai.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Sebelum desain atau teknis apapun</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=prd-generation">workflows/prd-generation.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=PRD">templates/PRD.md</a></dd>
+              <dt>Next</dt>
+              <dd>Architecture</dd>
+            </dl>
+            <p><strong>Tips:</strong> Jangan lewati — bahkan untuk fitur kecil, PRD singkat membantu agent memahami konteks. Output berupa PRD.md + decision ledger.</p>
+          </div>
+        </div>
+
+        <!-- 03: Architecture -->
+        <div class="d-accordion-item" id="architecture">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">03</span> Architecture Generation</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Setelah PRD siap, lanjut ke arsitektur sistem. Workflow ini mengeksplorasi trade-off, pattern, dan keputusan desain dengan ADR (Architecture Decision Records).</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Setelah PRD selesai</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=architecture-generation">workflows/architecture-generation.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=ARCHITECTURE">templates/ARCHITECTURE.md</a></dd>
+              <dt>Next</dt>
+              <dd>Design (jika ada UI) atau Security</dd>
+            </dl>
+            <p><strong>Tips:</strong> Gunakan Architect persona untuk review keputusan arsitektur. Output berupa ARCHITECTURE.md + decision ledger.</p>
+          </div>
+        </div>
+
+        <!-- 04: Design -->
+        <div class="d-accordion-item" id="design">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">04</span> Design Generation *</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p><strong>Kondisional.</strong> Hanya untuk project dengan UI/UX. Jika project CLI, API-only, worker, atau background job — lewati fase ini.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Hanya jika ada UI/UX</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=design-generation">workflows/design-generation.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=DESIGN">templates/DESIGN.md</a></dd>
+              <dt>Next</dt>
+              <dd>Security Planning</dd>
+            </dl>
+            <p><strong>Tips:</strong> Desainer yang baik memvalidasi lebih awal. Jika sudah ada Figma/prototype, link di template DESIGN.md.</p>
+          </div>
+        </div>
+
+        <!-- 05: Security -->
+        <div class="d-accordion-item" id="security">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">05</span> Security Planning</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Wajib untuk perubahan yang menyentuh auth, PII, payment, public API, atau aksi destruktif. Security workflow membangun threat model, data flow diagram, dan security decision record.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Setelah arsitektur, wajib untuk area berisiko</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=security-planning">workflows/security-planning.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=SECURITY">templates/SECURITY.md</a></dd>
+              <dt>Next</dt>
+              <dd>Testing Planning</dd>
+            </dl>
+            <p><strong>Tips:</strong> Gunakan Security Auditor persona untuk audit keamanan. Jangan lewati untuk public API atau perubahan database.</p>
+          </div>
+        </div>
+
+        <!-- 06: Testing -->
+        <div class="d-accordion-item" id="testing">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">06</span> Testing Planning</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Sebelum implementasi, rencanakan strategi testing: unit, integration, E2E. Workflow ini membantu menentukan coverage target, risk assessment, dan prioritasi test case.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Sebelum implementasi dimulai</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=testing-planning">workflows/testing-planning.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=TESTING">templates/TESTING.md</a></dd>
+              <dt>Next</dt>
+              <dd>Task List Generation</dd>
+            </dl>
+            <p><strong>Tips:</strong> Gunakan Test Engineer persona untuk review strategi testing. Prioritaskan test berdasar risk, bukan coverage number.</p>
+          </div>
+        </div>
+
+        <!-- 07: Task List -->
+        <div class="d-accordion-item" id="task-list">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">07</span> Task List Generation</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Setelah dokumen rencana cukup, breakdown pekerjaan ke task yang terurut. Setiap task mencakup: acceptance criteria, effort estimate, dependency, dan output yang diharapkan.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Setelah PRD + Architecture + Security + Testing selesai</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=task-list-generation">workflows/task-list-generation.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=TASK_LIST">templates/TASK_LIST.md</a></dd>
+              <dt>Next</dt>
+              <dd>Build</dd>
+            </dl>
+            <p><strong>Tips:</strong> Task list adalah jembatan antara planning dan eksekusi. Pastikan dependency antar task jelas.</p>
+          </div>
+        </div>
+
+        <!-- 08: Build -->
+        <div class="d-accordion-item" id="build">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">08</span> Build (Task Instruction)</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Saat implementasi, gunakan task instruction workflow untuk memandu agent mengerjakan task satu per satu. Agent menghasilkan evidence + update task status.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Saat implementasi task</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=task-instruction">workflows/task-instruction.md</a></dd>
+              <dt>Output</dt>
+              <dd>Evidence implementasi + task status update</dd>
+              <dt>Next</dt>
+              <dd>Code Review</dd>
+            </dl>
+            <p><strong>Tips:</strong> Satu task instruction per task. Jangan overload agent dengan banyak task sekaligus. Review evidence sebelum move ke task berikutnya.</p>
+          </div>
+        </div>
+
+        <!-- 09: Debugging -->
+        <div class="d-accordion-item" id="debugging">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">09</span> Debugging Workflow *</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p><strong>Kondisional.</strong> Hanya ketika ada error, bug, test gagal, atau perilaku tidak sesuai harapan. Workflow ini membantu root cause analysis + verified fix.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Hanya saat ada error/bug</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=debugging">workflows/debugging-workflow.md</a></dd>
+              <dt>Output</dt>
+              <dd>Root cause + verified fix</dd>
+              <dt>Next</dt>
+              <dd>Code Review</dd>
+            </dl>
+            <p><strong>Tips:</strong> Jangan tebak — gunakan workflow untuk sistematis mencari root cause. Sertakan error log sebagai input.</p>
+          </div>
+        </div>
+
+        <!-- 10: Code Review -->
+        <div class="d-accordion-item" id="code-review">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">10</span> Code Review</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Sebelum merge, review code dengan Code Reviewer persona. Workflow ini mengevaluasi 5 dimensi: correctness, security, performance, maintainability, testing.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Sebelum merge ke branch utama</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=code-review">workflows/code-review-workflow.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=CODE_REVIEW">templates/CODE_REVIEW.md</a></dd>
+              <dt>Next</dt>
+              <dd>Deployment</dd>
+            </dl>
+            <p><strong>Tips:</strong> Gunakan agent personas: Code Reviewer (kualitas), Security Auditor (keamanan), Performance Auditor (performa). Approve hanya jika semua MUST finding resolved.</p>
+          </div>
+        </div>
+
+        <!-- 11: Deployment -->
+        <div class="d-accordion-item" id="deployment">
+          <button class="d-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span><span style="color:var(--color-accent-strong);font-family:var(--font-mono);margin-right:var(--space-2);">11</span> Deployment Workflow</span>
+            <span class="d-accordion-marker">→</span>
+          </button>
+          <div class="d-accordion-body">
+            <p>Saat rilis, workflow deployment memandu proses release: migration, environment promotion, verification, rollback plan, dan monitoring.</p>
+            <dl class="d-acc-meta">
+              <dt>When</dt>
+              <dd>Saat akan merilis ke production</dd>
+              <dt>Workflow</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=deployment">workflows/deployment-workflow.md</a></dd>
+              <dt>Template</dt>
+              <dd><a class="d-acc-link" href="catalog.html?search=DEPLOYMENT">templates/DEPLOYMENT.md</a></dd>
+              <dt>Next</dt>
+              <dd>Complete — mulai lifecycle baru untuk iterasi berikutnya</dd>
+            </dl>
+            <p><strong>Tips:</strong> Gunakan deployment workflow tiap rilis. Jangan lewati rollback plan. Pastikan monitoring terpasang sebelum deploy.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer class="d-footer">
+      <div class="d-footer-copy">
+        <span class="d-nav-mark" style="display:inline-flex;width:1.5rem;height:1.5rem;font-size:0.75rem;vertical-align:middle;margin-right:var(--space-2);">›_</span>
+        oh my agent &middot; MIT License
+      </div>
+      <div class="d-footer-links">
+        <a href="https://github.com/nurmandigital/oh-my-agent" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="./">Dashboard</a>
+        <a href="https://github.com/nurmandigital/oh-my-agent/blob/main/LICENSE">License</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Auto-open accordion from hash
+    (function() {
+      var hash = location.hash.slice(1);
+      if (hash) {
+        var el = document.getElementById(hash);
+        if (el) setTimeout(function() {
+          el.classList.add('open');
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+      }
+    })();
+  </script>
+</body>
+</html>

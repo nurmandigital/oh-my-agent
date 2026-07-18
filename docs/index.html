@@ -3,37 +3,216 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Universal instructions, workflows, templates, guardrails, and skills for AI agents.">
+  <meta name="description" content="Universal instructions, workflows, templates, guardrails, personas, and skills for AI agents.">
   <link rel="icon" href="data:,">
-  <title>Oh My Agent — instruction kit</title>
+  <title>Oh My Agent — instruction kit for AI agents</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 <body>
-  <div class="shell">
-    <aside class="rail" aria-label="Catalog navigation">
-      <a class="brand" href="./"><span class="brand-mark">›_</span><span class="brand-name">oh my agent</span></a>
-      <p class="rail-note">A practical kit for agents that need to work clearly.</p>
-      <div>
-        <div class="nav-label">Browse by type</div>
-        <nav id="categories" class="category-list" aria-label="Categories"></nav>
+  <div class="d-shell">
+    <!-- ─── Navigation ─── -->
+    <nav class="d-nav">
+      <a class="d-nav-brand" href="./">
+        <span class="d-nav-mark">›_</span>
+        <span>oh my agent</span>
+      </a>
+      <div class="d-nav-links">
+        <a href="./" class="active">Dashboard</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="workflow-guide.html">Workflow Guide</a>
+        <a href="https://github.com/nurmandigital/oh-my-agent" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
-      <div class="rail-footer">Open source · <a href="https://github.com/nurmandigital/oh-my-agent">View on GitHub</a></div>
-    </aside>
-    <main class="main">
-      <header class="topbar"><span class="topbar-meta">UNIVERSAL AI AGENT KIT / v1</span><a class="github-link" href="https://github.com/nurmandigital/oh-my-agent">Repository ↗</a></header>
-      <section class="hero">
-        <div><div class="eyebrow">Ready to be copied</div><h1>Give your agent a better brief.</h1></div>
-        <div><p class="hero-copy">Reusable <strong>personas, workflows, guardrails, templates,</strong> and technical skills. Pick one. Read it. Put it in your agent.</p><div class="stat-line"><b id="total-count">—</b> practical files in the kit</div></div>
-      </section>
-      <section class="toolbar" aria-label="Search catalog"><label class="search-wrap"><span class="search-icon">/</span><input id="search" type="search" placeholder="Search files, topics, or keywords…" autocomplete="off"></label><span id="results" class="results" aria-live="polite">Loading…</span></section>
-      <section class="catalog"><div id="workflow-guide" class="workflow-guide" hidden><span class="eyebrow">Recommended path</span><h2>Copy these prompts in order.</h2><p>Start with the lifecycle map, then move from definition to release. Conditional phases are labelled.</p><ol id="workflow-path" class="workflow-path"></ol></div><div id="grid" class="grid"></div><p id="empty" class="empty" hidden>No files match that search.</p></section>
-    </main>
+    </nav>
+
+    <!-- ─── Hero ─── -->
+    <section class="d-hero">
+      <div>
+        <div class="d-eyebrow">Ready to be copied</div>
+        <h1>Give your agent a better brief.</h1>
+        <p class="d-hero-sub">Reusable <strong>personas, workflows, guardrails, templates,</strong> and technical skills. Pick one. Read it. Put it in your agent. Your AI builds better when you give it structure, not slop.</p>
+        <div class="d-hero-actions">
+          <a class="d-btn d-btn-primary" href="catalog.html">Browse Catalog →</a>
+          <a class="d-btn d-btn-outline" href="workflow-guide.html">How to Use ↓</a>
+        </div>
+        <div class="d-stats">
+          <div class="d-stat"><span class="d-stat-num" id="stat-files">—</span><div class="d-stat-label">Practical Files</div></div>
+          <div class="d-stat"><span class="d-stat-num" id="stat-workflows">—</span><div class="d-stat-label">Workflows</div></div>
+          <div class="d-stat"><span class="d-stat-num" id="stat-templates">—</span><div class="d-stat-label">Templates</div></div>
+          <div class="d-stat"><span class="d-stat-num" id="stat-agents">—</span><div class="d-stat-label">Agent Personas</div></div>
+        </div>
+      </div>
+      <div class="d-hero-visual">
+        <pre class="d-hero-code"><span>#</span> oh-my-agent — structured prompts for AI agents<span>
+
+</span><span>$</span> cat workflows/prd-generation.md | pbcopy<span>
+
+</span>  # Agent runs discovery
+  # Builds decision ledger
+  # Outputs structured PRD
+
+<span>$</span> cat workflows/architecture-generation.md | pbcopy
+
+  # Agent reviews PRD
+  # Explores trade-offs
+  # Generates ARCHITECTURE.md</pre>
+      </div>
+    </section>
+
+    <!-- ─── Value Props ─── -->
+    <section class="d-section">
+      <div class="d-section-header">
+        <div class="d-eyebrow">Why this kit</div>
+        <h2>Copy. Paste. Build better.</h2>
+        <p>oh-my-agent replaces vague instructions with structured prompts that reduce hallucination, surface hidden constraints, and produce consistent output.</p>
+      </div>
+      <div class="d-props">
+        <div class="d-prop">
+          <span class="d-prop-icon">📋</span>
+          <h3>Structured Prompts</h3>
+          <p>Every workflow has clear discovery questions, decision points, and output templates. No more "build me an app" — your agent knows exactly what to ask and produce.</p>
+        </div>
+        <div class="d-prop">
+          <span class="d-prop-icon">🧠</span>
+          <h3>Decision Ledger</h3>
+          <p>Every choice is recorded with rationale and alternatives. No more "why did the agent choose X?" — you get a traceable reasoning trail for every output.</p>
+        </div>
+        <div class="d-prop">
+          <span class="d-prop-icon">♻️</span>
+          <h3>Reusable Templates</h3>
+          <p>From PRD to deployment plan, every workflow produces structured Markdown documents. Use them as-is or adapt — consistent format across every project.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Lifecycle Flow ─── -->
+    <section class="d-section">
+      <div class="d-section-header">
+        <div class="d-eyebrow">End-to-end lifecycle</div>
+        <h2>From idea to deployment</h2>
+        <p>Each phase has a dedicated workflow. Start from PRD and move step-by-step. Conditional phases (Design, Debugging) can be skipped when not needed.</p>
+      </div>
+      <div class="d-lifecycle">
+        <div class="d-flow" data-phase="define" id="lifecycle-flow">
+          <div class="d-flow-node" data-phase="define" data-ref="prd-generation">
+            <span class="d-flow-tooltip">Start here. Define product scope, users, constraints.</span>
+            <span class="d-flow-circle">1</span>
+            <span class="d-flow-label">PRD</span>
+            <span class="d-flow-phase">Define</span>
+          </div>
+          <div class="d-flow-node" data-phase="plan" data-ref="architecture-generation">
+            <span class="d-flow-tooltip">System design, trade-offs, decision records.</span>
+            <span class="d-flow-circle">2</span>
+            <span class="d-flow-label">Architecture</span>
+            <span class="d-flow-phase">Plan</span>
+          </div>
+          <div class="d-flow-node" data-phase="plan" data-ref="design-generation">
+            <span class="d-flow-tooltip">UI/UX design. Conditional — skip for API-only.</span>
+            <span class="d-flow-circle">3</span>
+            <span class="d-flow-label">Design*</span>
+            <span class="d-flow-phase">Plan</span>
+          </div>
+          <div class="d-flow-node" data-phase="plan" data-ref="security-planning">
+            <span class="d-flow-tooltip">Threat model, auth, data protection.</span>
+            <span class="d-flow-circle">4</span>
+            <span class="d-flow-label">Security</span>
+            <span class="d-flow-phase">Plan</span>
+          </div>
+          <div class="d-flow-node" data-phase="plan" data-ref="testing-planning">
+            <span class="d-flow-tooltip">Test strategy, coverage, risk assessment.</span>
+            <span class="d-flow-circle">5</span>
+            <span class="d-flow-label">Testing</span>
+            <span class="d-flow-phase">Plan</span>
+          </div>
+          <div class="d-flow-node" data-phase="plan" data-ref="task-list-generation">
+            <span class="d-flow-tooltip">Break work into ordered tasks.</span>
+            <span class="d-flow-circle">6</span>
+            <span class="d-flow-label">Task List</span>
+            <span class="d-flow-phase">Plan</span>
+          </div>
+          <div class="d-flow-node" data-phase="build" data-ref="task-instruction">
+            <span class="d-flow-tooltip">Agent implements task by task.</span>
+            <span class="d-flow-circle">7</span>
+            <span class="d-flow-label">Build</span>
+            <span class="d-flow-phase">Build</span>
+          </div>
+          <div class="d-flow-node" data-phase="verify" data-ref="code-review-workflow">
+            <span class="d-flow-tooltip">Review code, check quality, approve merge.</span>
+            <span class="d-flow-circle">8</span>
+            <span class="d-flow-label">Review</span>
+            <span class="d-flow-phase">Verify</span>
+          </div>
+          <div class="d-flow-node" data-phase="ship" data-ref="deployment-workflow">
+            <span class="d-flow-tooltip">Release, deploy, monitor.</span>
+            <span class="d-flow-circle">9</span>
+            <span class="d-flow-label">Deploy</span>
+            <span class="d-flow-phase">Ship</span>
+          </div>
+        </div>
+      </div>
+      <p style="color:var(--color-ink-muted);font:var(--text-xs) var(--font-mono);margin:var(--space-3) 0 0;text-align:center;">* Conditional phase — skip when not applicable. Hover for details. Click node to see workflow.</p>
+    </section>
+
+    <!-- ─── Decision Cards ─── -->
+    <section class="d-section">
+      <div class="d-section-header">
+        <div class="d-eyebrow">Where to start</div>
+        <h2>What are you building?</h2>
+        <p>Not sure where to begin? Pick your scenario and we'll show you the right workflow and template.</p>
+      </div>
+      <div class="d-cards" id="decision-cards">
+        <a class="d-card" href="workflow-guide.html#prd">
+          <span class="d-card-icon">🆕</span>
+          <h3>New Project</h3>
+          <p>Building something from scratch. Start with product definition, then architecture, security, testing, and delivery.</p>
+          <span class="d-card-meta">Start: PRD workflow →</span>
+        </a>
+        <a class="d-card" href="workflow-guide.html#architecture">
+          <span class="d-card-icon">✨</span>
+          <h3>Add Feature</h3>
+          <p>Extending an existing system. Review architecture impact first, then security, testing, and implementation.</p>
+          <span class="d-card-meta">Start: Architecture workflow →</span>
+        </a>
+        <a class="d-card" href="catalog.html?search=bug">
+          <span class="d-card-icon">🐛</span>
+          <h3>Fix Bug</h3>
+          <p>Something is broken. Use the debugging workflow to find root cause, then code review before deploy.</p>
+          <span class="d-card-meta">Start: Debugging workflow →</span>
+        </a>
+        <a class="d-card" href="catalog.html?search=review">
+          <span class="d-card-icon">👀</span>
+          <h3>Review Code</h3>
+          <p>Need a code review before merge. Use the code review workflow and invoke the Code Reviewer persona.</p>
+          <span class="d-card-meta">Start: Code Review workflow →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── Agent Personas ─── -->
+    <section class="d-section">
+      <div class="d-section-header">
+        <div class="d-eyebrow">Agent personas</div>
+        <h2>Specialist reviewers</h2>
+        <p>Each persona has a focused perspective. Invoke them during code review, security audit, testing planning, or architecture design.</p>
+      </div>
+      <div class="d-agents" id="agent-list"></div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer class="d-footer">
+      <div class="d-footer-copy">
+        <span class="d-nav-mark" style="display:inline-flex;width:1.5rem;height:1.5rem;font-size:0.75rem;vertical-align:middle;margin-right:var(--space-2);">›_</span>
+        oh my agent &middot; MIT License
+      </div>
+      <div class="d-footer-links">
+        <a href="https://github.com/nurmandigital/oh-my-agent" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="workflow-guide.html">Workflow Guide</a>
+        <a href="https://github.com/nurmandigital/oh-my-agent/blob/main/LICENSE">License</a>
+      </div>
+    </footer>
   </div>
-  <div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
-    <article class="viewer-panel"><header class="viewer-head"><h2 id="viewer-title">File</h2><div><button id="copy-viewer" class="copy-button" type="button">Copy markdown</button><button id="close-viewer" class="close-button" type="button" aria-label="Close viewer">Esc</button></div></header><div id="viewer-content" class="viewer-body markdown-body"></div></article>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.12/dist/purify.min.js" defer></script>
-  <script src="assets/js/app.js" defer></script>
+
+  <script src="assets/js/dashboard.js" defer></script>
 </body>
 </html>

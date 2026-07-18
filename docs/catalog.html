@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Universal instructions, workflows, templates, guardrails, and skills for AI agents.">
+  <link rel="icon" href="data:,">
+  <title>Oh My Agent ΓÇö instruction kit</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail" aria-label="Catalog navigation">
+      <a class="brand" href="./"><span class="brand-mark">ΓÇ║_</span><span class="brand-name">oh my agent</span></a>
+      <p class="rail-note">A practical kit for agents that need to work clearly.</p><nav style="display:flex;flex-direction:column;gap:var(--space-1);margin-top:-0.5rem;"><a href="./" style="color:oklch(78% 0.02 258);text-decoration:none;font-size:var(--text-sm);padding:0.3rem 0.65rem;border-radius:var(--radius-sm);"> Dashboard</a><a href="catalog.html" style="color:var(--color-paper-raised);text-decoration:none;font-size:var(--text-sm);padding:0.3rem 0.65rem;border-radius:var(--radius-sm);background:oklch(31% 0.04 258);font-weight:600;"> Catalog</a><a href="workflow-guide.html" style="color:oklch(78% 0.02 258);text-decoration:none;font-size:var(--text-sm);padding:0.3rem 0.65rem;border-radius:var(--radius-sm);"> Guide</a></nav>
+      <div>
+        <div class="nav-label">Browse by type</div>
+        <nav id="categories" class="category-list" aria-label="Categories"></nav>
+      </div>
+      <div class="rail-footer"><a href="./">Dashboard</a> &middot; <a href="workflow-guide.html">Guide</a> &middot; <a href="https://github.com/nurmandigital/oh-my-agent" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><span class="topbar-meta">UNIVERSAL AI AGENT KIT / v1</span><a class="github-link" href="https://github.com/nurmandigital/oh-my-agent">Repository Γåù</a></header>
+      <section class="hero">
+        <div><div class="eyebrow">Ready to be copied</div><h1>Give your agent a better brief.</h1></div>
+        <div><p class="hero-copy">Reusable <strong>personas, workflows, guardrails, templates,</strong> and technical skills. Pick one. Read it. Put it in your agent.</p><div class="stat-line"><b id="total-count">ΓÇö</b> practical files in the kit</div></div>
+      </section>
+      <section class="toolbar" aria-label="Search catalog"><label class="search-wrap"><span class="search-icon">/</span><input id="search" type="search" placeholder="Search files, topics, or keywordsΓÇª" autocomplete="off"></label><span id="results" class="results" aria-live="polite">LoadingΓÇª</span></section>
+      <section class="catalog"><div id="workflow-guide" class="workflow-guide" hidden><span class="eyebrow">Recommended path</span><h2>Copy these prompts in order.</h2><p>Start with the lifecycle map, then move from definition to release. Conditional phases are labelled.</p><ol id="workflow-path" class="workflow-path"></ol></div><div id="grid" class="grid"></div><p id="empty" class="empty" hidden>No files match that search.</p></section>
+    </main>
+  </div>
+  <div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
+    <article class="viewer-panel"><header class="viewer-head"><h2 id="viewer-title">File</h2><div><button id="copy-viewer" class="copy-button" type="button">Copy markdown</button><button id="close-viewer" class="close-button" type="button" aria-label="Close viewer">Esc</button></div></header><div id="viewer-content" class="viewer-body markdown-body"></div></article>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.12/dist/purify.min.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
+
+
+
+
